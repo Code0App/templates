@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { readdirSync, statSync } from 'node:fs';
+import { readdirSync, statSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { spawn } from 'node:child_process';
 
@@ -34,14 +34,28 @@ async function main() {
   const modeIdx = args.indexOf('--mode');
   const mode = modeIdx >= 0 ? (args[modeIdx + 1] || '').toLowerCase() : '';
 
-  const root = join(process.cwd());
-  const sandboxDir = join(root, 'sandbox');
-  const templates = findTemplates(sandboxDir);
+  // Determine base directory to scan for templates:
+  // Priority: --dir <path> arg > TEMPLATES_DIR env > ./sandbox if exists > repo root (cwd)
+  const cwd = join(process.cwd());
+  const dirIdx = args.indexOf('--dir');
+  const argDir = dirIdx >= 0 ? args[dirIdx + 1] : '';
+  const envDir = process.env.TEMPLATES_DIR || '';
+  const sandboxDirCandidate = join(cwd, 'sandbox');
+  const baseDir = argDir
+    ? join(cwd, argDir)
+    : envDir
+    ? join(cwd, envDir)
+    : existsSync(sandboxDirCandidate)
+    ? sandboxDirCandidate
+    : cwd;
+
+  const templates = findTemplates(baseDir);
   if (templates.length === 0) {
-    console.error('No templates found in sandbox/*');
+    console.error(`No templates found. Looked in: ${baseDir}/*`);
     process.exit(1);
   }
 
+  console.log(`Scanning templates in: ${baseDir}`);
   console.log(`Found ${templates.length} template(s):`);
   for (const t of templates) console.log('-', t);
 

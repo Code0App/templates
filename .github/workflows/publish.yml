@@ -4,9 +4,9 @@ on:
   push:
     branches: [master]
     paths:
-      - 'e2b.Dockerfile'
-      - 'e2b.toml'
-      - 'compile_page.sh'
+      - '**/e2b.Dockerfile'
+      - '**/e2b.toml'
+      - '**/compile_page.sh'
       - 'scripts/**'
       - '.github/workflows/publish.yml'
       - '.github/workflows/build.yml'
