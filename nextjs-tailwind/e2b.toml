@@ -1,0 +1,19 @@
+# This is a config for E2B sandbox template.
+# You can use template ID (zv80q8qolj5icz4kwejc) or template name (code0-nextjstailwind) to create a sandbox:
+
+# Python SDK
+# from e2b import Sandbox, AsyncSandbox
+# sandbox = Sandbox("code0-nextjstailwind") # Sync sandbox
+# sandbox = await AsyncSandbox.create("code0-nextjstailwind") # Async sandbox
+
+# JS SDK
+# import { Sandbox } from 'e2b'
+# const sandbox = await Sandbox.create('code0-nextjstailwind')
+
+team_id = "4465cfe3-5234-4e68-8099-a4df2df45079"
+memory_mb = 4_192
+cpu_count = 4
+start_cmd = "/compile_page.sh"
+dockerfile = "e2b.Dockerfile"
+template_name = "code0-nextjstailwind"
+template_id = "zv80q8qolj5icz4kwejc"

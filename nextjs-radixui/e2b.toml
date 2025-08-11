@@ -11,8 +11,8 @@
 # const sandbox = await Sandbox.create('code0-nextjsradixui')
 
 team_id = "4465cfe3-5234-4e68-8099-a4df2df45079"
-memory_mb = 8_192
-cpu_count = 8
+memory_mb = 4_192
+cpu_count = 4
 start_cmd = "/compile_page.sh"
 dockerfile = "e2b.Dockerfile"
 template_name = "code0-nextjsradixui"
