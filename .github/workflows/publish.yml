@@ -30,7 +30,7 @@ jobs:
           node-version: 20
 
       - name: Install E2B CLI
-        run: npm i -g e2b
+        run: npm i -g @e2b/cli
 
       - name: Verify e2b install
         run: e2b --version
