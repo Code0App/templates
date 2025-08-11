@@ -33,6 +33,5 @@ jobs:
       - name: Build All Templates
         env:
           E2B_API_KEY: ${{ secrets.E2B_API_KEY }}
-        working-directory: sandbox
         run: |
           node ./scripts/build-and-publish.mjs --mode build

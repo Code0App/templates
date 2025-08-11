@@ -1,4 +1,4 @@
-name: Publish E2B Templates
+name: Publish Templates
 
 on:
   push:
@@ -35,6 +35,5 @@ jobs:
       - name: Publish All Templates
         env:
           E2B_API_KEY: ${{ secrets.E2B_API_KEY }}
-        working-directory: sandbox
         run: |
           node ./scripts/build-and-publish.mjs --mode publish
