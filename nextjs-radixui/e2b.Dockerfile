@@ -11,7 +11,7 @@ RUN chmod +x /compile_page.sh
 WORKDIR /tmp/app
 
 # Create a fresh Next.js app (non-interactive)
-RUN npx --yes create-next-app@15.3.3 . --yes
+RUN npx --yes create-next-app@latest . --yes
 
 # Install Radix UI component packages
 RUN npm i --save \
