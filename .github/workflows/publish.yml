@@ -1,7 +1,6 @@
 name: Publish E2B Templates
 
 on:
-  workflow_dispatch:
   push:
     branches: [main, master]
     paths:
