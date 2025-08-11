@@ -1,6 +1,6 @@
 # Sandbox templates
 
-This folder contains E2B sandbox templates used by the app to spin up ephemeral environments for each project.
+This repo contains E2B sandbox templates used by the app to spin up ephemeral environments for each project.
 
 ## Structure
 - `nextjs/`
@@ -56,6 +56,3 @@ Update both if you rename or move the script.
 - Docker daemon not running: start Docker Desktop; WSL2 & Linux containers enabled. Test with `docker version` and `docker run hello-world`.
 - Script not found / exit 127: ensure `start_cmd` uses the absolute path and the script has LF line endings on Windows.
 - Template 404: ensure the template exists in your E2B team and `.env` points to the correct ID/name.
-
-## Do I need Docker always?
-No. Only when building/publishing templates. After publishing and setting `E2B_TEMPLATE_ID` in `.env`, you can stop Docker; the app uses E2B Cloud at runtime.
