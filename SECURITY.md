@@ -9,7 +9,7 @@ This folder contains E2B sandbox templates used to spin up ephemeral environment
 - If credentials were exposed (API keys, tokens), revoke/rotate them immediately and note this in your report.
 
 ## Scope
-- Files under `sandbox/` (e.g., `nextjs/e2b.Dockerfile`, `e2b.toml`, shell scripts) and any artifacts they produce.
+- Files under the root (e.g., `nextjs-shadcn/e2b.Dockerfile`, `e2b.toml`, shell scripts) and any artifacts they produce.
 - Runtime commands defined in `start_cmd` and installed packages in the image.
 
 ## Best Practices for Contributors
@@ -20,7 +20,7 @@ This folder contains E2B sandbox templates used to spin up ephemeral environment
 - Use LF line endings for shell scripts and verify with `bash -n` locally when possible.
 
 ## Supported Templates
-- Actively maintained templates live under `sandbox/`. Templates without recent updates may receive limited security backports.
+- Actively maintained templates live inside this repo. Templates without recent updates may receive limited security backports.
 
 ## Disclosure Timeline
 - We aim to acknowledge within 3 business days and provide an initial assessment or mitigation plan within 10 business days.

@@ -10,10 +10,8 @@ RUN chmod +x /compile_page.sh
 # Install dependencies and customize sandbox in a temp directory
 WORKDIR /tmp/app
 
+# Create a fresh Next.js app with TailwindCSS (non-interactive)
 RUN npx --yes create-next-app@latest . --yes
-
-RUN npx --yes shadcn@latest init --yes -b neutral --force
-RUN npx --yes shadcn@latest add --all --yes
 
 # Copy everything (including dotfiles) to /home/user and remove temp dir to avoid nesting
 RUN mkdir -p /home/user \

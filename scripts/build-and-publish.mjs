@@ -66,7 +66,7 @@ async function main() {
     }
     if (!mode || mode === 'publish' || mode === 'all' || mode === '') {
       console.log(`\n=== Publishing: ${t} ===`);
-      await run('e2b', ['template', 'publish'], t);
+      await run('e2b', ['template', 'publish', '--yes'], t);
     }
   }
 
