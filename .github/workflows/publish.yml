@@ -2,13 +2,14 @@ name: Publish E2B Templates
 
 on:
   push:
-    branches: [main, master]
+    branches: [master]
     paths:
-      - 'sandbox/**/e2b.Dockerfile'
-      - 'sandbox/**/e2b.toml'
-      - 'sandbox/**/compile_page.sh'
-      - 'sandbox/scripts/**'
-      - 'sandbox/.github/workflows/publish.yml'
+      - 'e2b.Dockerfile'
+      - 'e2b.toml'
+      - 'compile_page.sh'
+      - 'scripts/**'
+      - '.github/workflows/publish.yml'
+      - '.github/workflows/build.yml'
 
 concurrency:
   group: publish-templates-${{ github.ref }}

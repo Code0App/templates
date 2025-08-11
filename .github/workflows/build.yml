@@ -2,13 +2,12 @@ name: Build Templates
 
 on:
   push:
-    branches: [main, master]
     paths:
-      - 'sandbox/**/e2b.Dockerfile'
-      - 'sandbox/**/e2b.toml'
-      - 'sandbox/**/compile_page.sh'
-      - 'sandbox/scripts/**'
-      - 'sandbox/.github/workflows/publish.yml'
+      - 'e2b.Dockerfile'
+      - 'e2b.toml'
+      - 'compile_page.sh'
+      - 'scripts/**'
+      - '.github/workflows/publish.yml'
 
 concurrency:
   group: build-templates-${{ github.ref }}
