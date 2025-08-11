@@ -1,0 +1,40 @@
+name: Publish E2B Templates
+
+on:
+	workflow_dispatch:
+	push:
+		branches: [ main, master ]
+		paths:
+			- 'sandbox/**/e2b.Dockerfile'
+			- 'sandbox/**/e2b.toml'
+			- 'sandbox/**/compile_page.sh'
+			- 'sandbox/scripts/**'
+			- 'sandbox/.github/workflows/publish.yml'
+
+concurrency:
+	group: publish-templates-${{ github.ref }}
+	cancel-in-progress: true
+
+jobs:
+	publish:
+		runs-on: ubuntu-latest
+		permissions:
+			contents: read
+		steps:
+			- name: Checkout
+				uses: actions/checkout@v4
+
+			- name: Setup Node.js
+				uses: actions/setup-node@v4
+				with:
+					node-version: 20
+
+			- name: Install E2B CLI
+				run: npm i -g e2b
+
+			- name: Build & Publish All Templates
+				env:
+					E2B_API_KEY: ${{ secrets.E2B_API_KEY }}
+				working-directory: sandbox
+				run: |
+					node node ./scripts/build-and-publish.mjs --mode build
